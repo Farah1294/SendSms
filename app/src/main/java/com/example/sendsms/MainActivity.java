@@ -7,6 +7,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -82,6 +83,10 @@ public class MainActivity extends AppCompatActivity {
         SmsManager smsManager = SmsManager.getDefault();
         smsManager.sendTextMessage(phoneNum, null,msg, null, null );
         Toast.makeText(this,"Send!", Toast.LENGTH_LONG).show();
+
+
+        Intent intent = new Intent(this,ReceivedSms.class);
+        startActivity(intent);
     }
 
 }
